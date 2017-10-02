@@ -65,6 +65,10 @@ public class UiApplication extends SpringBootServletInitializer {
 			userAdmin.setRoles(roleRepository.findAllByOrderByNameAsc());
 
 			userRepository.save(userAdmin);
+			
+			User normalUser = new User("veladitya", "admin", "veladitya@blogger.com", "ROLE_USER");
+			normalUser.setRoles(roleRepository.findByName("ROLE_USER"));
+			userRepository.save(normalUser);
 		};
 	}
 
